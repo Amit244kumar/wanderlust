@@ -1,0 +1,45 @@
+<% layout('/layouts/boiler') %>
+
+<div class="row mt-3">
+    <h1 class="col-6 offset-3">Sign up on Wanderlust</h1>
+    <div class="col-6 offset-3">
+        <form action="/signup" method="post" novalidate class="needs-validation">
+            <div class="mb-3">
+                <label for="username" class="form-label">username</label>
+                <input class="input"  
+                required 
+                type="text" 
+                name="username"
+                id='username'
+                placeholder="enter username">
+                <div class="valid-feedback">
+                 title looks good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input class="input"  
+                required 
+                type="email" 
+                name="email"
+                id='email'
+                placeholder="enter email" 
+                />
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">password</label>
+                <input class="input"  
+                required 
+                type="password" 
+                name="password"
+                id='password'
+                placeholder="enter password" 
+                />
+            </div>
+            <button class="btn btn-success">SignUp</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

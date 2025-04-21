@@ -1,0 +1,61 @@
+<% layout('/layouts/boiler') %>
+<body>
+    
+    <div class="row">
+        <div class="col-8 offset-2">
+        <form action="/listings" method="post" 
+        novalidate class="needs-validation" enctype="multipart/form-data">
+            <h3>Create a new listing </h3>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input class="input"  required type="text" name="listing[title]"
+                placeholder="enter title">
+                <div class="valid-feedback">
+                    title looks good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="description"  class="form-label " >description</label>
+                <textarea type="text" required name="listing[description]" class="input"
+                placeholder="enter description"> </textarea> 
+                <div class="valid-feedback">
+                    description looks good
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">upload Image</label>
+                <input class="form-control" required type="file" name="listing[image]" >
+            </div>
+            <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input class="input" required type="text" name="listing[price]" placeholder="enter price"> 
+                    <div class="valid-feedback">
+                        price looks good
+                    </div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">country</label>
+                    <input class="input" required type="text" name="listing[country]" placeholder="enter country" class="form-control">
+                    <div class="valid-feedback">
+                        country looks good
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="location" class="form-label">location</label>
+                <input class="input" required type="text" name="listing[location]" placeholder="enter location"> 
+                <div class="valid-feedback">
+                    location looks good
+                </div>
+            </div>
+            <button class="btn btn-dark add-btn" >add</button>
+        </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- <script src="/js/script.js"></script> -->
+</body>
+

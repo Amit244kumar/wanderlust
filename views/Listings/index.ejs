@@ -1,0 +1,128 @@
+<% layout('/layouts/boiler') %>
+<body>
+    <style>
+        #filters{
+            margin-top:1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter{
+            text-align: center;
+            margin-right: 2rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+
+        }
+        .filter:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .filter p{
+            font-size: 0.8rem;
+        }
+        .tax{
+            display: none;
+        }
+        .tax-toggle{
+            border:1px solid black;
+            border-radius: 1rem;
+            height: 2.5rem;
+            padding: 1rem;
+            margin-left: 2rem;
+            display: flex;
+            align-items: center;
+            
+        }
+    </style>
+    <!-- <h3>All Listings</h3> -->
+     <div id="filters">
+            <div class="filter">
+                <div><i class="fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Room</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic City</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <p>Moutains</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-chess-rook"></i></div>
+                <p>Castles</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-snowflake"></i></div>
+                <p>Arctic </p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-campground"></i></div>
+                <p>Camping</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-cow"></i></div>
+                <p>Farms</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-igloo"></i></div>
+                <p>Domes</p>
+            </div>
+            <div class="filter">
+                <div><i class="fa-solid fa-sailboat"></i></div>
+                <p>Boats</p>
+            </div>
+            <div class="tax-toggle">
+                <div class="form-check-reverse form-switch">
+                    <input 
+                    class="form-check-input" 
+                    type="checkbox" 
+                    role="switch" 
+                    id="switchCheckDefault">
+                    <label class="form-check-label" for="switchCheckDefault">Display total after texes</label>
+                </div>
+            </div>
+     </div>
+    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1 mt-3" >
+        <% for(let listing of allListing){ %>
+            <div class="card col listing-card" >
+                <a href="/listings/<%=listing._id %>" >
+                    <img src=<%= listing.image.url  %> class="card-img-top" alt=<%= listing.image.filename  %> style="height: 20rem;" alt="listing">
+                    <div class="card-img-overlay "></div>
+                </a>
+                
+                <div class="card-body">
+                <div>
+                    <b><p><%= listing.title  %></p></b>
+                    <p class="card-text"><%= listing.description %></p>
+                    <p>&#8377;<%= listing.price.toLocaleString('en-IN') %>/Night</p>
+                    <i  class="tax">&#8377;+18% GST</i>
+                </div>
+                </div>
+            </div>
+        <%}%>
+    </div>
+    
+</body>
+
+<script>
+    let taxSwitch=document.getElementById("switchCheckDefault")
+    let toggle=true
+    taxSwitch.addEventListener("click",()=>{
+        let tax=document.querySelectorAll(".tax")
+        for(let t of tax){
+            if(toggle){
+                t.style.display="inline"
+            }else{
+                t.style.display="none"
+            }
+        }
+        toggle=toggle?false:true; 
+        
+    })
+</script>
